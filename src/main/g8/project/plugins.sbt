@@ -5,7 +5,6 @@ resolvers += Classpaths.sbtPluginReleases
 
 // addSbtPlugin("io.get-coursier"                % "sbt-coursier"               % "2.0.0-RC3-3")
 addSbtPlugin("ch.epfl.scala"                  % "sbt-scalafix"               % "0.9.7")
-addSbtPlugin("au.com.onegeek"                 %% "sbt-dotenv"                % "2.1.146")
 addSbtPlugin("com.github.gseitz"              % "sbt-release"                % "1.0.12")
 addSbtPlugin("com.typesafe.sbt"               % "sbt-git"                    % "1.0.0")
 addSbtPlugin("com.softwaremill.clippy"        % "plugin-sbt"                 % "0.6.1")
@@ -16,7 +15,6 @@ addSbtPlugin("org.duhemm"                     % "sbt-errors-summary"         % "
 addSbtPlugin("com.birdhowl"                   % "sbt-mfinger"                % "0.1.0")
 addSbtPlugin("com.timushev.sbt"               % "sbt-updates"                % "0.5.0")
 addSbtPlugin("org.scalastyle"                 %% "scalastyle-sbt-plugin"     % "1.0.0")
-addSbtPlugin("com.mintbeans"                  % "sbt-ecr"                    % "0.14.1")
 addSbtPlugin("net.virtual-void"               % "sbt-dependency-graph"       % "0.10.0-RC1")
 addSbtPlugin("org.programmiersportgruppe.sbt" %% "tabulartestreporter"       % "4.1.0")
 addSbtPlugin("org.scalameta"                  % "sbt-mdoc"                   % "2.0.1")
@@ -28,3 +26,5 @@ addSbtPlugin("io.github.jonas"                % "sbt-paradox-material-theme" % "
 addSbtPlugin("com.dwijnand"                   % "sbt-reloadquick"            % "1.0.0")
 addSbtPlugin("net.virtual-void"               % "sbt-optimizer"              % "0.1.2")
 addSbtPlugin("io.regadas"                     % "sbt-socco"                  % "0.1.0")
+addSbtPlugin("pl.project13.scala"             % "sbt-jmh"                    % "0.3.7")
+

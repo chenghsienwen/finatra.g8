@@ -1,9 +1,8 @@
 package $package$
 
-import $package$.modules.ServiceSwaggerModule
-import $package$.controllers.AdminController
-import $package$.controllers.MainController
-import $package$.filters.CommonFilters
+import $package$.modules._
+import $package$.controllers._
+import $package$.filters._
 import $package$.util.AppConfigLib._
 import $package$.util.PipeOperator._
 import com.jakehschwartz.finatra.swagger.DocsController
@@ -12,9 +11,6 @@ import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.filters.{LoggingMDCFilter, TraceIdMDCFilter}
 import com.twitter.finatra.http.routing.HttpRouter
 import com.twitter.util.Var
-import monix.execution.Scheduler
-import monix.execution.schedulers.SchedulerService
-import perfolation._
 
 object ServerMain extends Server
 
@@ -23,7 +19,7 @@ class Server extends HttpServer {
 
   implicit lazy val scheduler: SchedulerService = Scheduler.io("$package$")
 
-  override protected def modules = Seq(ServiceSwaggerModule)
+  override protected def modules = Seq(ServiceSwaggerModule, FinatraTypesafeConfigModule)
 
   override def defaultHttpPort = getConfig[String]("FINATRA_HTTP_PORT").fold(":9999")(x => p":$"$"$x")
   override val name            = "$package$-$name;format="Camel"$"
@@ -36,6 +32,7 @@ class Server extends HttpServer {
       .add[DocsController]
       .add[AdminController]
       .add[MainController]
+      .add[BasicAuthFilter, ConfigController]
       .|>(_ => ())
   }
 }
