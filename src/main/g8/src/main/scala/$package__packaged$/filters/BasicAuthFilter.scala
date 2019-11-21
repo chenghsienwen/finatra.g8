@@ -9,6 +9,7 @@ import com.twitter.finatra.http.response.ResponseBuilder
 import com.twitter.inject.Logging
 import com.twitter.util.Future
 import javax.inject.Inject
+import com.typesafe.config.Config
 
 class BasicAuthFilter @Inject()(
                                  responseBuilder: ResponseBuilder,

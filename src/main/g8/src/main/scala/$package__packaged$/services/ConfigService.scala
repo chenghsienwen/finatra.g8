@@ -2,6 +2,7 @@ package $package$.services
 
 import com.twitter.inject.Logging
 import javax.inject.{Inject, Singleton}
+import com.typesafe.config.Config
 
 @Singleton
 class ConfigService @Inject()(

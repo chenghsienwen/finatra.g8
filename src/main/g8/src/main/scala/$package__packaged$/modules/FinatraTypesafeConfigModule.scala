@@ -1,7 +1,8 @@
 package $package$.modules
 
 import java.io.File
-
+import com.google.inject.Provides
+import $package$.util.PipeOperator._
 import com.twitter.inject.{Logging, TwitterModule}
 import com.typesafe.config.{Config, ConfigFactory}
 
