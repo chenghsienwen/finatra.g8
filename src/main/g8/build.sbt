@@ -9,7 +9,7 @@ import scala.language.implicitConversions
 import scala.language.postfixOps
 
 // resolve from environment( jennkins pipeline )
-nameOfBranch in Global := sys.env.getOrElse("ARTIFACT_NAME", s"${name.value}-unknown")
+nameOfBranch in Global := sys.env.getOrElse("ARTIFACT_NAME", s"$"$"${name.value}-unknown")
 buildNumber in Global := sys.env.getOrElse("BUILD_VERSION", "latest")
 dockerPublishRepo in Global := sys.env.get("DOCKER_PUBLISH_REPO")
 dockerPublishUser in Global := sys.env.get("DOCKER_PUBLISH_USER")
