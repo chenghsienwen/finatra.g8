@@ -11,6 +11,10 @@ import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.filters.{LoggingMDCFilter, TraceIdMDCFilter}
 import com.twitter.finatra.http.routing.HttpRouter
 import com.twitter.util.Var
+import is.kow.finatratypesafe.modules.FinatraTypesafeConfigModule
+import monix.execution.Scheduler
+import monix.execution.schedulers.SchedulerService
+import perfolation._
 
 object ServerMain extends Server
 

@@ -243,6 +243,10 @@ bashScriptExtraDefines ++= Seq("""addApp "-log.level=$"$"${LOG_LEVEL:-INFO}"""",
 
 testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oD")
 
+packageName in Universal := "app"
+executableScriptName := "run.sh"
+makeBatScripts := Seq.empty // Disable generating of .bat script
+scriptClasspath := Seq("*")
 
 //dockerBaseImage := "bellsoft/liberica-openjre-alpine:8u212"
 dockerBaseImage    := "findepi/graalvm:19.2.1"
