@@ -1,6 +1,6 @@
 # Release Notes
 
-## $service_version$
+## service_version
 
 Features
 

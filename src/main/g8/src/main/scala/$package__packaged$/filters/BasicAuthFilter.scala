@@ -19,7 +19,7 @@ class BasicAuthFilter @Inject()(
     with Logging {
 
   def apply(request: Request, service: Service[Request, Response]): Future[Response] = {
-    logger.info(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> User: $authUser Pass: $authPass")
+    logger.info(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> User: $"$"$authUser Pass: $"$"$authPass")
     if (authUser.nonEmpty) {
       val authHeader: Option[String] = request.headerMap.get("Authorization")
       authHeader.map { value =>

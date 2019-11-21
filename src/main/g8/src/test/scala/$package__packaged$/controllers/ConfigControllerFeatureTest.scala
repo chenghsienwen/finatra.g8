@@ -37,7 +37,7 @@ class ConfigControllerFeatureTest extends FeatureTest {
     )
   )
 
-  val authData = s"Basic ${new String(
+  val authData = s"Basic $"$"${new String(
     Base64.getEncoder
       .encode("requiredUser:requiredPass".getBytes(StandardCharsets.UTF_8))
   )}"

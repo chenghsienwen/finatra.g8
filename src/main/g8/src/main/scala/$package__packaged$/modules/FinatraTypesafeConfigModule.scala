@@ -13,7 +13,7 @@ object FinatraTypesafeConfigModule extends TwitterModule with Logging {
     val specified = configurationFile()
 
     val config = if (specified.nonEmpty) {
-      logger.info(s"LOADING SPECIFIED CONFIG FROM: $specified")
+      logger.info(s"LOADING SPECIFIED CONFIG FROM: $"$"$specified")
       ConfigFactory.parseFile(new File(specified)).withFallback(ConfigFactory.load())
     } else {
       logger.warn("LOADING DEFAULT CONFIG!")
@@ -21,8 +21,8 @@ object FinatraTypesafeConfigModule extends TwitterModule with Logging {
     }
 
     //Lets validate that some config exists
-    logger.info(s"Thingy: ${config.getString("example.thingy")}")
-    logger.info(s"Thingy2: ${config.getString("example.thingy2")}")
+    logger.info(s"Thingy: $"$"${config.getString("example.thingy")}")
+    logger.info(s"Thingy2: $"$"${config.getString("example.thingy2")}")
 
     install(TypesafeConfigModule.fromConfig(config))
   }

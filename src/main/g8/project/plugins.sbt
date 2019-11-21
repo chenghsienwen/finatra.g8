@@ -5,6 +5,7 @@ resolvers += Classpaths.sbtPluginReleases
 
 // addSbtPlugin("io.get-coursier"                % "sbt-coursier"               % "2.0.0-RC3-3")
 addSbtPlugin("ch.epfl.scala"                  % "sbt-scalafix"               % "0.9.7")
+addSbtPlugin("au.com.onegeek"                 %% "sbt-dotenv"                % "2.1.146")
 addSbtPlugin("com.github.gseitz"              % "sbt-release"                % "1.0.12")
 addSbtPlugin("com.typesafe.sbt"               % "sbt-git"                    % "1.0.0")
 addSbtPlugin("com.softwaremill.clippy"        % "plugin-sbt"                 % "0.6.1")
