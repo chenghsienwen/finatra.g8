@@ -1,15 +1,15 @@
 package $package$.services
 
-import com.github.racc.tscg.TypesafeConfig
 import com.twitter.inject.Logging
 import javax.inject.{Inject, Singleton}
 
 @Singleton
 class ConfigService @Inject()(
-    @TypesafeConfig("example.thingy") thingy: String,
-    @TypesafeConfig("example.thingy2") thingy2: String,
-    @TypesafeConfig("example.magicNumber") magicNumber: Int
-) extends Logging {
+                               config: Config
+                             ) extends Logging {
+  val thingy      = config.getString("example.thingy")
+  val thingy2     = config.getString("example.thingy2")
+  val magicNumber = config.getInt("example.magicNumber")
 
   def listExamples(): Seq[String] =
     Seq(

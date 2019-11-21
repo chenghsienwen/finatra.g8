@@ -141,8 +141,7 @@ libraryDependencies ++= Seq(
   "org.scalatest"                %% "scalatest"                       % versions.scalatest      % "test",
   "com.novocode"                 % "junit-interface"                  % versions.junitInterface % "test",
   "com.whisk"                    %% "docker-testkit-scalatest"        % versions.dockerItScala  % "test",
-  "com.whisk"                    %% "docker-testkit-impl-docker-java" % versions.dockerItScala  % "test",
-  "com.github.racc"              % "typesafeconfig-guice"             % "0.0.1"
+  "com.whisk"                    %% "docker-testkit-impl-docker-java" % versions.dockerItScala  % "test"
 ) ++ Seq(
   "com.github.cb372" %% "cats-retry-core",
   "com.github.cb372" %% "cats-retry-cats-effect"

@@ -3,7 +3,6 @@ package $package$.filters
 import java.nio.charset.StandardCharsets
 import java.util.Base64
 
-import com.github.racc.tscg.TypesafeConfig
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finagle.{Service, SimpleFilter}
 import com.twitter.finatra.http.response.ResponseBuilder
@@ -12,13 +11,14 @@ import com.twitter.util.Future
 import javax.inject.Inject
 
 class BasicAuthFilter @Inject()(
-    responseBuilder: ResponseBuilder,
-    @TypesafeConfig("auth.pass") authPass: String,
-    @TypesafeConfig("auth.user") authUser: String
-) extends SimpleFilter[Request, Response]
-    with Logging {
+                                 responseBuilder: ResponseBuilder,
+                                 config: Config
+                               ) extends SimpleFilter[Request, Response]
+  with Logging {
 
   def apply(request: Request, service: Service[Request, Response]): Future[Response] = {
+    val authPass = config.getString("auth.pass")
+    val authUser = config.getString("auth.user")
     logger.info(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> User: $"$"$authUser Pass: $"$"$authPass")
     if (authUser.nonEmpty) {
       val authHeader: Option[String] = request.headerMap.get("Authorization")
