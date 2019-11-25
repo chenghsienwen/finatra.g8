@@ -21,7 +21,7 @@ node {
     stage('Unit Test') {
         withJavaSbtEnv(java: javaHome, sbt: sbtHome) {
             sh 'sbt validate || true'
-            junit 'tests/target/test-reports/*.xml'
+            junit 'target/test-reports/*.xml'
             scoverage reportDir: './target/scala-2.12/scoverage-report', reportFile: 'scoverage.xml'
         }
     }
