@@ -3,6 +3,7 @@ package $package$
 import $package$.modules._
 import $package$.controllers._
 import $package$.filters._
+import $package$.AssignedPort._
 import $package$.util.AppConfigLib._
 import $package$.util.PipeOperator._
 import com.jakehschwartz.finatra.swagger.DocsController
@@ -17,7 +18,7 @@ import perfolation._
 
 object ServerMain extends Server
 
-class Server extends HttpServer {
+class Server extends HttpServer with PortAssignment {
   val health = Var("good")
 
   implicit lazy val scheduler: SchedulerService = Scheduler.io("$package$")
