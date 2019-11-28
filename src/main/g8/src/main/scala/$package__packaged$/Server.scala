@@ -25,7 +25,7 @@ class Server extends HttpServer {
   override protected def modules = Seq(ServiceSwaggerModule, FinatraTypesafeConfigModule)
   
   override val name             = "$name;format="Camel"$"
-  override def defaultHttpPort  = assignedPort(name).fold(":9999")(x => p":$x")
+  override def defaultHttpPort  = assignedPort(name).fold(":9999")(x => p":$"$"$x")
   override def defaultAdminPort = assignedPort("admin").getOrElse(9990)
 
 
