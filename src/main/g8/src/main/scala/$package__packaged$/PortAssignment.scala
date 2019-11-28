@@ -39,8 +39,8 @@ object AssignedPort extends AssignedPort {
 
   def apply(name: String): Option[Int] =
     sys.env
-      .get(s"NOMAD_PORT_$name")
-      .orElse(sys.props.get(s"port.$name"))
+      .get(s"NOMAD_PORT_$"$"$name")
+      .orElse(sys.props.get(s"port.$"$"$name"))
       .map(_.toInt)
 
   def apply(name: String, default: => Int): Int =
