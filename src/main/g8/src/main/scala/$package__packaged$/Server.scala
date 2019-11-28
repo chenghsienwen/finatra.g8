@@ -20,6 +20,7 @@ object ServerMain extends Server
 
 class Server extends HttpServer with PortAssignment {
   val health = Var("good")
+  val dtabFile = flag("dtab.file", "", "dtab file to override settings")
 
   implicit lazy val scheduler: SchedulerService = Scheduler.io("$package$")
 
