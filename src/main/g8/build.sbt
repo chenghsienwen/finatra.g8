@@ -82,6 +82,7 @@ lazy val versions = new {
   val guice          = "4.2.2"
   val logback        = "1.2.3"
   val mockito        = "1.10.19"
+  val specs2         = "2.4.17"
   val scalatest      = "3.0.8"
   val junitInterface = "0.11"
   val dockerItScala  = "0.9.9"
@@ -137,6 +138,8 @@ libraryDependencies ++= Seq(
   "com.twitter"                  %% "inject-app"                      % versions.finatra % "test" classifier "tests",
   "com.twitter"                  %% "inject-core"                     % versions.finatra % "test" classifier "tests",
   "com.twitter"                  %% "inject-modules"                  % versions.finatra % "test" classifier "tests",
+  "org.specs2"                   %% "specs2-mock"                     % versions.specs2  % "test",
+  "org.specs2"                   %% "specs2-junit"                    % versions.specs2  % "test",
   "org.mockito"                  % "mockito-core"                     % versions.mockito        % "test",
   "org.scalatest"                %% "scalatest"                       % versions.scalatest      % "test",
   "com.novocode"                 % "junit-interface"                  % versions.junitInterface % "test",
@@ -229,16 +232,6 @@ soccoPackage := List(
 )
 
 // bashScriptExtraDefines += """addJava "-Dnetworkaddress.cache.ttl=60""""
-bashScriptExtraDefines ++= Seq("""addJava "-server"""",
-  """addJava "-Dnetworkaddress.cache.ttl=60"""",
-  """addJava "-XX:+UnlockExperimentalVMOptions"""",
-  """addJava "-XX:+EnableJVMCI"""",
-  """addJava "-XX:+UseJVMCICompiler"""",
-  """addJava "-XX:+UseG1GC"""",
-  """addJava "-XX:+UseStringDeduplication"""")
-bashScriptExtraDefines ++= Seq("""addApp "-log.level=$"$"${LOG_LEVEL:-INFO}"""",
-  """addApp "-swagger.docs.endpoint=$"$"${SWAGGER_DOC_PATH:-/$name;format="norm,word"$/docs}"""",
-  s"""addApp "-service.version=$"$"${buildNumber.value}"""")
 
 testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oD")
 

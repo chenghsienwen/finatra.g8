@@ -23,9 +23,11 @@ class Server extends HttpServer {
   implicit lazy val scheduler: SchedulerService = Scheduler.io("$package$")
 
   override protected def modules = Seq(ServiceSwaggerModule, FinatraTypesafeConfigModule)
+  
+  override val name             = "$name;format="Camel"$"
+  override def defaultHttpPort  = assignedPort(name).fold(":9999")(x => p":$x")
+  override def defaultAdminPort = assignedPort("admin").getOrElse(9990)
 
-  override def defaultHttpPort = getConfig[String]("FINATRA_HTTP_PORT").fold(":9999")(x => p":$"$"$x")
-  override val name            = "$package$-$name;format="Camel"$"
 
   override def configureHttp(router: HttpRouter): Unit = {
     router

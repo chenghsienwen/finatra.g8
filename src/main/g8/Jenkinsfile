@@ -7,7 +7,7 @@
  */
 
 @Library('dsp')
-name = "$name$"
+name = "$docker_package_name$"
 
 node {
 
