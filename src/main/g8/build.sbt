@@ -58,7 +58,7 @@ lazy val docs = project
   .in(file("mdoc-docs"))
   .settings(
     scalaVersion  := "$scala_version$",
-    mdocVariables := Map("VERSION" -> (version in rootProject).value),
+    mdocVariables := Map("VERSION" -> buildNumber.value),
     mdocIn        := file("./mdoc-docs"),
     mdocOut       := file("./target/mdoc"),
     commonSettings
