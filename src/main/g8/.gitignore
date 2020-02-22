@@ -147,4 +147,5 @@ hs_err_pid*
 
 .bloop/
 project/.bloop/
+project/metals.sbt
 .metals/

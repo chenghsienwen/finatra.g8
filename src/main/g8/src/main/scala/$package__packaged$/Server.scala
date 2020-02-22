@@ -25,6 +25,7 @@ class Server extends HttpServer with PortAssignment {
   implicit lazy val scheduler: SchedulerService = Scheduler.io("$package$")
 
   override protected def modules = Seq(ServiceSwaggerModule, FinatraTypesafeConfigModule)
+  override def jacksonModule = CustomJacksonModule
   
   override val name             = "$name;format="Camel"$"
   override def defaultHttpPort  = assignedPort(name).fold(":9999")(x => p":$"$"$x")
