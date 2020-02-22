@@ -32,12 +32,6 @@ node {
         }
     }
 
-    // stage('Acceptance Test') {
-    //     withJavaSbtEnv(java: javaHome, sbt: sbtHome) {
-    //         sh 'sbt uat'
-    //     }
-    // }
-
     stage("Deploy") {
         withJavaSbtEnv(java: javaHome, sbt: sbtHome) {
             deployQuadas name: name, manifest: 'manifest.conf', tarball: 'target/universal/app.tgz', pushNomadJsonToS3: true, pushToDockerRegistry: true, branch: env.BRANCH_NAME.toLowerCase().replaceAll("[/#]", "").replaceAll("_", "-")
