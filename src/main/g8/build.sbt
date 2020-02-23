@@ -36,9 +36,6 @@ lazy val rootProject = project
   .settings(name := "$name$",
     organization := "$organization$",
     scalaVersion := "$scala_version$",
-    Compile      / paradoxMaterialTheme ~= {
-      _.withColor("teal", "indigo").withFont("Roboto", "Fira Code")
-    },
     publishArtifact in (Compile, packageDoc) in ThisBuild := false,
     commonSettings
   ).enablePlugins(
@@ -75,7 +72,6 @@ coverageExcludedPackages := ".*sse*.;.*util*.;.*client*."
 scapegoatVersion in ThisBuild := "1.3.10"
 
 scalafmtConfig    := file(".scalafmt.conf")
-scalafmtOnCompile := true
 
 lazy val versions = new {
   val finatra        = "19.11.0"
