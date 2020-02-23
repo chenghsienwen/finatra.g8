@@ -2,16 +2,17 @@ package $package$.util
 
 import io.lemonlabs.uri.Url
 import Url._
-
+import com.typesafe.config.ConfigFactory
 import scala.util.control.Exception._
 
 trait ConfigLib {
+  val conf = ConfigFactory.load()
   def getConfig[T](k: String)(implicit dataConverter: DataConverter[T]): Option[T]
 }
 
 object AppConfigLib extends ConfigLib {
   def getConfig[T](k: String)(implicit dc: DataConverter[T]): Option[T] =
-    Option(System.getenv(k)).flatMap(dc.convert)
+    Option(conf.getValue(k).render()).flatMap(dc.convert)
 }
 
 trait DataConverter[T] {

@@ -59,13 +59,14 @@
     <!-- ===================================================== -->
 
     <!-- Root Config -->
-    <root level="$"$"${LOG_LEVEL:-warn}">
+    <root level="info">
         <appender-ref ref="ASYNC-SERVICE"/>
     </root>
 
     <!-- Per-Package Config -->
     <logger name="com.twitter" level="info"/>
     <logger name="com.twitter.finatra" level="debug"/>
+    <logger name="$package$.util.PipeOperator" level="$"$"${LOG_LEVEL:-info}"/>
     <logger name="$package$.controllers" level="$"$"${LOG_LEVEL:-info}">
         <!-- <appender-ref ref="ASYNC-FLUENTD-SERVICE"/> -->
         <appender-ref ref="ASYNC-ACCESS"/>
