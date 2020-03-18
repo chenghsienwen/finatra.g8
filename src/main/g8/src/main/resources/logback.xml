@@ -59,7 +59,7 @@
     <!-- ===================================================== -->
 
     <!-- Root Config -->
-    <root level="info">
+    <root level="$"$"${LOG_LEVEL:-info}">
         <appender-ref ref="ASYNC-SERVICE"/>
     </root>
 
