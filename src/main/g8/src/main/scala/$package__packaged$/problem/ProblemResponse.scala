@@ -3,17 +3,16 @@ package $package$.problem
 import cats.Show
 import cats.instances.string._
 import cats.syntax.eq._
-import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.github.mehmetakiftutuncu.errors.Errors
 import $package$.problem.ProblemResponse._
 import $package$.util.PipeOperator._
 import com.twitter.finagle.http.{Response, Status}
 import com.twitter.finatra.http.response.SimpleResponse
-import com.twitter.finatra.json.FinatraObjectMapper
 import io.estatico.newtype.macros.newtype
 import io.lemonlabs.uri.Uri
 import mouse.boolean._
 import perfolation._
+import com.twitter.finatra.jackson.ScalaObjectMapper
 
 final case class Problem[T, E](`type`: Uri = Uri.parse("about:blank"),
                                title: Title,
@@ -27,9 +26,7 @@ final case class NoExtensionProblem[T](`type`: Uri = Uri.parse("about:blank"),
                                         detail: Detail[T])
 
 object ProblemResponse {
-  private[this] val mapper = FinatraObjectMapper
-    .create()
-    .$"$"$$"$"$(_.objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.LOWER_CAMEL_CASE))
+    private[this] val mapper = ScalaObjectMapper.builder.camelCaseObjectMapper
 
     def apply[T, E](problem: Problem[T, E])(implicit show: Show[T]): Response =
       SimpleResponse(

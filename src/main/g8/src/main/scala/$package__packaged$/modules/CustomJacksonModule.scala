@@ -1,9 +1,8 @@
 package $package$.modules
 
-import com.twitter.finatra.json.modules.FinatraJacksonModule
-import com.twitter.finatra.json.utils.CamelCasePropertyNamingStrategy
+import com.fasterxml.jackson.databind.PropertyNamingStrategy
+import com.twitter.finatra.jackson.modules.ScalaObjectMapperModule
+object CustomJacksonModule extends ScalaObjectMapperModule {
 
-object CustomJacksonModule extends FinatraJacksonModule {
-
-  override val propertyNamingStrategy = CamelCasePropertyNamingStrategy
+  override val propertyNamingStrategy = PropertyNamingStrategy.LOWER_CAMEL_CASE
 }

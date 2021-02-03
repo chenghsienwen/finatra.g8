@@ -1,7 +1,8 @@
 package $package$.problem
 
 import io.lemonlabs.uri.Uri
-import org.scalatest.{FunSuite, Matchers}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.funsuite.AnyFunSuite
 import ProblemResponse._
 import com.github.mehmetakiftutuncu.errors.{Errors, SimpleError}
 import $package$.problem.SampleExtension.{AccountId, TraceId}
@@ -17,7 +18,7 @@ object SampleExtension {
 final case class SampleExtension(traceId: TraceId, accountId: AccountId)
 
 // sbt "testOnly $package$.problem.ProblemResponseSpec"
-class ProblemResponseSpec extends FunSuite with Matchers {
+class ProblemResponseSpec extends AnyFunSuite with Matchers {
 
   test("Should generate proper RFC7807 error response") {
     val resp: Response = ProblemResponse(
