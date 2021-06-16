@@ -7,9 +7,7 @@ Finatna.g8 project template provides you the support of reading system environme
 ```scala mdoc
 import $package$.util.AppConfigLib._
 
-val logLevelOpt: Option[String]       = getConfig[String]("LOG_LEVEL")
 val isFastFailEnable: Option[Boolean] = getConfig[Boolean]("FAIL_FAST_ENABLE")
-val finatraHttpPort: Option[Int]      = getConfig[Int]("FINATRA_HTTP_PORT")
 ```
 
 You just import `<your package name>.AppConfigLib._` to your code and use `getConfig[T](variableName: String)` to read the system environment variable named after the given string, say "LOG_LEVEL" in the demo. The `getConfig` function's return type is an `Option[T]` where the type `T` is what you specify in the use of `getConfig[T]`. The reason of returning an Option type is that required system environment variable might not be defined.Thus you have the opportunity to deal with this case when you get a `None` in return.
